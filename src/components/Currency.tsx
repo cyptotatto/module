@@ -105,7 +105,7 @@ function Currency() {
   return (
     <div>
       <h1>{account}</h1>
-      <h3>chizu balance</h3>
+      <h3>tatto balance</h3>
       <div>{balance.tattoBalance}</div>
       <div className="deposit-box">
         <h3>deposit box</h3>
