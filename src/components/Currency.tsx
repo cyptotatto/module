@@ -9,6 +9,7 @@ import {
 } from "../contract/utils/transform";
 import { TattoCurrencyListener } from "../contract/eventListener";
 import Router from "next/router";
+import { WithdrawEventType } from "../contract/interface";
 
 function Currency() {
   const account = useRecoilValue<string>(accountAtom);
@@ -28,10 +29,11 @@ function Currency() {
         setbalance({ ...balance, myBalance: makeEtherFromBigNumber(res) });
       });
     }
+  }, [account, balance]);
 
+  useEffect(() => {
     const listener = (from: string, to: string, amount: BigNumber) => {
       console.log(from, to, amount);
-      Router.reload();
     };
 
     TattoCurrencyListener.addDepositListener(Tatto.currencyControl, listener);
@@ -104,7 +106,7 @@ function Currency() {
 
   return (
     <div>
-      <h1>{account}</h1>
+      <h1>your account:{account}</h1>
       <h3>tatto balance</h3>
       <div>{balance.tattoBalance}</div>
       <div className="deposit-box">
@@ -115,7 +117,7 @@ function Currency() {
           onChange={handleDeposit}
         ></input>
         <button onClick={depositEther}>deposit</button>
-        <div>max: {balance.tattoBalance}</div>
+        <div>max: {balance.myBalance}</div>
       </div>
       <div className="widraw-box">
         <h3>withdraw box</h3>
@@ -125,7 +127,7 @@ function Currency() {
           onChange={handleWithdraw}
         ></input>
         <button onClick={withdrawEther}>withdraw</button>
-        <div>max: {balance.myBalance}</div>
+        <div>max: {balance.tattoBalance}</div>
       </div>
     </div>
   );

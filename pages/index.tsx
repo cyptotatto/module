@@ -8,20 +8,22 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <>
-        <Link href="/mint">
-          <h1>mint 페이지로 이동</h1>
-        </Link>
-        <Link href="/market">
-          <h1>market 페이지로 이동</h1>
-        </Link>
-        <Link href="/currency">
-          <h1>돈관리</h1>
-        </Link>
-        <Link href="/role">
-          <h1>role관리</h1>
-        </Link>
-      </>
+      {account && (
+        <>
+          <Link href="/mint">
+            <h1>mint 페이지로 이동</h1>
+          </Link>
+          <Link href="/market">
+            <h1>market 페이지로 이동</h1>
+          </Link>
+          <Link href="/currency">
+            <h1>돈관리</h1>
+          </Link>
+          <Link href="/role">
+            <h1>role관리</h1>
+          </Link>
+        </>
+      )}
     </div>
   );
 };

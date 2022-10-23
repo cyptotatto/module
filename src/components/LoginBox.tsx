@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accountAtom } from "../recoil/account";
 
@@ -8,6 +8,7 @@ function LoginBox() {
   const handleLogout = () => {
     setAccount("");
   };
+
   const handleLogin = async () => {
     try {
       if (window.ethereum) {
