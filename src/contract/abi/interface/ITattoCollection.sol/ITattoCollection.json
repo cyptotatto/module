@@ -1,3 +1,41 @@
 [
-  "function lazyMint(address,address,string,address,bytes32,bytes) returns (uint256)"
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "creatorAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "receiverAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsHash",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "mintHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "mintSignature",
+        "type": "bytes"
+      }
+    ],
+    "name": "lazyMint",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ]

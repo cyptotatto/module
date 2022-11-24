@@ -31,7 +31,7 @@ export function tradeHash(
   sellerAddress: string,
   buyerAddress: string,
   price: BigNumber,
-  random: number
+  salt: number
 ) {
   const hash = ethers.utils.solidityKeccak256(
     ["uint256", "uint256", "uint256", "uint256", "uint256"],
@@ -40,7 +40,7 @@ export function tradeHash(
       BigInt(sellerAddress),
       BigInt(buyerAddress),
       price,
-      BigInt(random),
+      BigInt(salt),
     ]
   );
   return hash;
